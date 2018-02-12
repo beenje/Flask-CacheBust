@@ -29,7 +29,7 @@ class CacheBust(object):
             for filename in filenames:
                 # compute version component
                 rooted_filename = os.path.join(dirpath, filename)
-                with open(rooted_filename, 'r') as f:
+                with open(rooted_filename, 'rb') as f:
                     version = hashlib.md5(f.read()).hexdigest()[:7]
 
                 # add version
