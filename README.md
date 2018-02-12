@@ -8,11 +8,21 @@ Install Flask-CacheBust by placing the "flask_cache_bust" folder somewhere
 importable from Python. Import the extension and use it to augment your app:
 
 ```python
-from flask.ext import cache_bust
+from flask_cache_bust import CacheBust
 
 # ...
+cache_bust = CacheBust(app)
+```
 
-cache_bust.init_cache_busting(app)
+Or if you use the factory pattern for creating applications, use `init_app`:
+
+```python
+from flask_cache_bust import CacheBust
+
+# ...
+cache_bust = CacheBust()
+
+cache_bust.init_app(app)
 ```
 
 The `url_for` function will now cache-bust your static files. For example, this
